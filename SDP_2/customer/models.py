@@ -38,7 +38,7 @@ class Appointment(models.Model):
     problem=models.CharField(max_length=100,choices=problems,default='Allergies')
     date=models.DateField()
     slot=models.CharField(max_length=50,choices=slot,default='morning')
-    report=models.FileField(blank=True)
+    report=models.FileField(upload_to ='medicalreport/',blank=True)
     confirmation=models.CharField(max_length=50,choices=confirmationchoices,default='email')
 
 class MedicineCart(models.Model):

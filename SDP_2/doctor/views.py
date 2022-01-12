@@ -68,8 +68,12 @@ def DoctorHomePage(request):
         return redirect('cushome')
     elif pro=='pharmacy':
         return redirect('pharmacyhome')
-    c=Consult.objects.filter(doctoremail=request.session['email'],date=date.today())
-    return render(request,'doctorHome.html',{'consults':c})
+    try:
+        c=Consult.objects.filter(doctoremail=request.session['email'],date=date.today())
+        return render(request,'doctorHome.html',{'consults':c})
+    except:
+        return render(request,'doctorHome.html')
+
 
 def SelectSlot(request):
     pro=CheckProfession(request)
@@ -137,8 +141,12 @@ def ConsultsPage(request):
         return redirect('cushome')
     elif pro=='pharmacy':
         return redirect('pharmacyhome')
-    consults=Consult.objects.filter(doctoremail=request.session['email'])
-    return render(request,'allconsults.html',{'consults':consults})
+    try:
+        consults=Consult.objects.filter(doctoremail=request.session['email'])
+        return render(request,'allconsults.html',{'consults':consults})
+    except:
+        return render(request,'allconsults.html')
+
 
 def ViewDetails(request,name,email,date):
     consults=Consult.objects.filter(useremail=email)

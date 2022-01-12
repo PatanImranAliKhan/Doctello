@@ -232,12 +232,15 @@ def PharmacyReg(request):
     return render(request,'pharmacyRegistration.html',{'form':pform})
 
 def LogoutDoctello(request):
-    del request.session['username']
-    del request.session['email']
-    del request.session['mobile']
-    del request.session['location']
-    del request.session['profession']
-    return redirect('home')
+    try:
+        del request.session['username']
+        del request.session['email']
+        del request.session['mobile']
+        del request.session['location']
+        del request.session['profession']
+        return redirect('home')
+    except:
+        return redirect('home')
 
 
 

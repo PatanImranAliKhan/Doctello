@@ -48,24 +48,25 @@ def AboutPage(request):
     return render(request,'cusabout.html')
 
 def CustomerHome(request):
-    pro=CheckProfession(request)
-    if pro=='doctor':
-        return redirect('dochome')
-    elif pro=='pharmacy':
-        return redirect('pharmacyhome')
-    medor=MedicineOrder.objects.all()
-    data1=[0,0,0,0,0,0,0,0,0,0,0,0]
-    for i in medor:
-        my_mon = i.date.strftime("%m")
-        p=int(my_mon)
-        data1[p-1]+=1
-    data2=[0,0,0,0,0,0,0,0,0,0,0,0]
-    con=Consult.objects.all()
-    for i in con:
-        my_mon = i.date.strftime("%m")
-        p=int(my_mon)
-        data2[p-1]+=1
-    return render(request,'cusHome.html',{'data1':data1,'data2':data2})
+    # pro=CheckProfession(request)
+    # if pro=='doctor':
+    #     return redirect('dochome')
+    # elif pro=='pharmacy':
+    #     return redirect('pharmacyhome')
+    # medor=MedicineOrder.objects.all()
+    # data1=[0,0,0,0,0,0,0,0,0,0,0,0]
+    # for i in medor:
+    #     my_mon = i.date.strftime("%m")
+    #     p=int(my_mon)
+    #     data1[p-1]+=1
+    # data2=[0,0,0,0,0,0,0,0,0,0,0,0]
+    # con=Consult.objects.all()
+    # for i in con:
+    #     my_mon = i.date.strftime("%m")
+    #     p=int(my_mon)
+    #     data2[p-1]+=1
+    # return render(request,'cusHome.html',{'data1':data1,'data2':data2})
+    return render(request,'cusHome.html')
 
 def CusOrders(request):
     pro=CheckProfession(request)
@@ -199,8 +200,12 @@ def ConsultsPage(request):
     elif pro=='pharmacy':
         return redirect('pharmacyhome')
     dt=date.today()
-    s=Slot.objects.filter(date__gte=dt)
-    return render(request,'ConsultDoctor.html',{'doctors':s})
+    try:
+        s=Slot.objects.filter(date__gte=dt)
+        return render(request,'ConsultDoctor.html',{'doctors':s})
+    except:
+        return render(request,'ConsultDoctor.html')
+
 
 def ConsultDoctor(request,email,date):
     pro=CheckProfession(request)
@@ -287,17 +292,17 @@ def Appointmentpage(request,name):
             for t in totalslot:
                 c+=1
             if c>5:
-                return render(request,'appointment.html',{'form':aform,'error':'Sorry slots are filled'})
+                return render(request,'appointment.html',{'form':aform,'name':name,'username':request.session['username'],'email':request.session['email'],'mobile':request.session['mobile'],'error':'Sorry slots are filled'})
             try:
                 appoint=Appointment.objects.get(email=aform.data['email'],slot=aform.data['slot'],date=aform.data['date'])
-                return render(request,'appointment.html',{'form':aform,'error':'Your slot is already booked'})
+                return render(request,'appointment.html',{'form':aform,'name':name,'username':request.session['username'],'email':request.session['email'],'mobile':request.session['mobile'],'error':'Your slot is already booked'})
             except:
                 aform.save()
             aform.save()
-            return render(request,'appointment.html',{'form':aform,'success':'Your slot is booked successfully'})
+            return render(request,'appointment.html',{'form':aform,'name':name,'username':request.session['username'],'email':request.session['email'],'mobile':request.session['mobile'],'success':'Your slot is booked successfully'})
         except:
             aform.save()
-            return render(request,'appointment.html',{'form':aform,'success':'Your slot is booked successfully'})
+            return render(request,'appointment.html',{'form':aform,'name':name,'username':request.session['username'],'email':request.session['email'],'mobile':request.session['mobile'],'success':'Your slot is booked successfully'})
     return render(request,'appointment.html',{'form':aform,'name':name,'username':request.session['username'],'email':request.session['email'],'mobile':request.session['mobile']})
 
 def HealthTipsPage(request):
@@ -323,8 +328,11 @@ def AllconsultationsPage(request):
         return redirect('dochome')
     elif pro=='pharmacy':
         return redirect('pharmacyhome')
-    consults=Consult.objects.filter(useremail=request.session['email'])
-    return render(request,'cusallconsultations.html',{'consults':consults})
+    try:
+        consults=Consult.objects.filter(useremail=request.session['email'])
+        return render(request,'cusallconsultations.html',{'consults':consults})
+    except:
+        return render(request,'cusallconsultations.html')
 
 
 def ProfilePage(request):
