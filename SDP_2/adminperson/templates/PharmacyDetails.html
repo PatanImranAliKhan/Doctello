@@ -96,21 +96,13 @@ pharmacy Details
                         <b>Resume : </b>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                        <a href="{% url 'displaypdf' pharmacy.resume %}" target="__blank">{{pharmacy.resume}}</a>
-                        <!-- <embed
-                            src="../../media/{{pharmacy.resume}}"
-                            type="application/pdf"
-                            frameBorder="0"
-                            scrolling="auto"
-                            height="100%"
-                            width="100%"
-                        ></embed> -->
+                        <a href="/media/{{pharmacy.resume}}" target="__blank">Pharmacy Resume</a>
                     </div>
                     <div class="col-md-2 col-sm-6">
                         <b>Shop Proofs : </b>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                        <a href="">{{pharmacy.shopproofs}}</a>
+                        <a href="/media/{{pharmacy.shopproofs}}" target="__blank">Pharmacy ShopProofs</a>
                     </div>
                 </div>
                 <br>

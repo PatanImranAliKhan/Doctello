@@ -127,12 +127,15 @@ def OrdersPage(request):
     except:
         return render(request,"medorders.html")
 def LogoutDoctello(request):
-    del request.session['username']
-    del request.session['email']
-    del request.session['mobile']
-    del request.session['location']
-    del request.session['profession']
-    return redirect('home')
+    try:
+        del request.session['username']
+        del request.session['email']
+        del request.session['mobile']
+        del request.session['location']
+        del request.session['profession']
+        return redirect('home')
+    except:
+        return redirect('home')
 
 def MedProfilePage(request):
     pro=CheckProfession(request)
