@@ -23,114 +23,7 @@
 		</div>
 	</div>
 
-	<!-- <div class="col-md-6 offset-md-3 my-5">
-		<div class="card ">
-			<div class="card-body pb-0 text-center">
-				<h2 class="text-success">Monthly expenses</h2>
-				<hr>
-			</div>
-			<div class="card-body">
-				<canvas id="myChart"></canvas>
-				<script type="text/javascript">
-					var ctx = document.getElementById('myChart').getContext('2d');
-					data1={{ data1 | safe }}
-					data2={{ data2| safe}}
-					var myChart = new Chart(ctx, {
-						type: 'bar',
-						data: {
-							labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'sep', 'oct', 'Nov', 'Dec'],
-							datasets: [{
-								label: 'Monthly Expenses',
-								data: data1,
-								backgroundColor: [
-									'rgba(255, 99, 132)',
-									'rgba(255, 99, 132)',
-									'rgba(255, 99, 132)',
-									'rgba(255, 99, 132)',
-									'rgba(255, 99, 132)',
-									'rgba(255, 99, 132)',
-									'rgba(255, 99, 132)',
-									'rgba(255, 99, 132)',
-									'rgba(255, 99, 132)',
-									'rgba(255, 99, 132)',
-									'rgba(255, 99, 132)',
-									'rgba(255, 99, 132)',
-									// 'rgba(54, 162, 235)',
-									// 'rgba(255, 206, 86)',
-									// 'rgba(75, 192, 192)',
-									// 'rgba(153, 102, 255)',
-									// 'rgba(255, 159, 64)',
-									// 'rgba(255, 99, 132)',
-									// 'rgba(54, 162, 235)',
-									// 'rgba(255, 206, 86)',
-									// 'rgba(75, 192, 192)',
-									// 'rgba(153, 102, 255)',
-									// 'rgba(255, 159, 64,0.8)',
-	
-								],
-								borderWidth: 1
-							}]
-						},
-						options: {
-							scales: {
-								y: {
-									beginAtZero: true
-								}
-							},
-	
-						}
-					});
-				</script>
-			</div>
-		</div>
-		<br>
-		<div class="card ">
-			<div class="card-body pb-0 text-center">
-				<h2 class="text-success">Doctor consultations</h2>
-				<hr>
-			</div>
-			<div class="card-body">
-				<canvas id="myChar"></canvas>
-				<script type="text/javascript">
-					var ctx = document.getElementById('myChar').getContext('2d');
-					var myChart = new Chart(ctx, {
-						type: 'line',
-						data: {
-							labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'sep', 'oct', 'Nov', 'Dec'],
-							datasets: [{
-								label: 'Doctor consultations', data: data2,
-								backgroundColor: [
-									'rgba(54, 162, 235)',
-									'rgba(255, 206, 86)',
-									'rgba(75, 192, 192)',
-									'rgba(153, 102, 255)',
-									'rgba(255, 159, 64)',
-									'rgba(255, 99, 132)',
-									'rgba(54, 162, 235)',
-									'rgba(255, 206, 86)',
-									'rgba(75, 192, 192)',
-									'rgba(153, 102, 255)',
-									'rgba(255, 159, 64,0.8)',
-								],
-								borderWidth: 1
-							}]
-						},
-						options: {
-							scales: {
-								y: {
-									beginAtZero: true
-								}
-							},
-	
-						}
-					});
-				</script>
-			</div>
-		</div>
-	
-	</div> -->
-
-	<section id="about" class="section-100 bg-white">
+	<section id="about" class="section-50 bg-white">
 		<div class="container">
 			<div class="row flex-center">
 				<div class="col-md-6 col-lg-6">
@@ -173,37 +66,25 @@
 		</div>
 	</section>
 
-	<section id="team" class="section-100 bg-white">
+	<section id="team" class="section-50 bg-white">
 		<div class="container">
 			<h1 class="text-center" data-aos="fade-up" data-aos-delay="100"><b>Our Team</b></h1>
-			<p class="text-center" data-aos="fade-up" data-aos-delay="200">We are very productive and supportive team</p>
 			<br>
-			<br>
-			<div class="row">
+			<div class="row" style="display: flex;justify-content: center;">
 				<div class="col-lg-4 col-sm-6">
 					<div class="team-box" data-aos="fade-left" data-aos-delay="100">
 						<img src="{% static 'images/imran.jpg' %}" alt="">
 						<div class="team-info">
-							<h4 class="text-muted">P.Imran Ali Khan</h4>
-							<p class="primary-color">Frontend Developer</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<div class="team-box" data-aos="fade-left" data-aos-delay="200">
-						<img src="{% static 'images/krishnavamsi.png' %}" alt="">
-						<div class="team-info">
-							<h4 class="text-muted">S. Krishna Vamsi</h4>
-							<p class="primary-color">Backend Developer</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<div class="team-box" data-aos="fade-left" data-aos-delay="300">
-						<img src="{% static 'images/srinivas.png' %}" alt="">
-						<div class="team-info">
-							<h4 class="text-muted">S.Shanmukh Srinivas</h4>
-							<p class="primary-color">Data Scientist</p>
+							<h4 class="text-muted">P. Imran Ali Khan</h4>
+							<p class="primary-color">Full Stack Developer</p>
+							<div style="display: flex;flex-direction: row;justify-content: space-evenly;margin-top:8px">
+								<span>
+									<a href="https://www.linkedin.com/in/imranalikhanpatan"><i class="fa fa-linkedin fa-2x" data-aos="fade-up" data-aos-delay="200"></i></a>
+								</span>
+								<span>
+									<a href="https://github.com/PatanImranAliKhan" style="color: black;"><i class="fa fa-github fa-2x" data-aos="fade-up" data-aos-delay="300"></i></a>
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -211,7 +92,7 @@
 		</div>
 	</section>
 
-	<section id="faq" class="section-100">
+	<section id="faq" class="section-50">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
