@@ -91,15 +91,13 @@ WSGI_APPLICATION = 'SDP_2.wsgi.application'
 # }
 
 DATABASES = {
-        'default': {
+    'default': {
         'ENGINE': 'djongo',
-        "CLIENT": {
-        "host": "mongodb+srv://doctello:doctello@firstcluster.fcybv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-        "username": "doctello",
-        "password": "doctello",
-        "name": "doctello",
-        "authMechanism": "SCRAM-SHA-1",
-    },
+        'NAME': 'doctello',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://doctello:doctello@firstcluster.fcybv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+        }
     }
 }
 
